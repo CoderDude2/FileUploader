@@ -19,19 +19,22 @@ class App(tk.Tk):
         
         self.path_entry = tk.Entry(master=self, textvariable="Test")
         self.path_entry.insert(0,string=file_manager.REMOTE_STL_PATH)
+        
         self.folder_selction_combo = ttk.Combobox(master=self, state="readonly", values=os.listdir(file_manager.REMOTE_STL_PATH))
-        self.upload_files = tk.Button(master=self, text="Upload", command=self.upload_esp_and_prg)
-        self.import_files = tk.Button(master=self, text="Import", command=self.cancel_confirmation)
+        self.folder_selction_combo.current(0)
+
+        self.upload_files_button = tk.Button(master=self, text="Upload", command=self.upload_esp_and_prg)
+        self.import_files_button = tk.Button(master=self, text="Import", command=self.import_files)
 
         self.path_entry.grid(row=0, column=0, sticky='news')
         self.folder_selction_combo.grid(row=1, column=0, sticky='news')
-        self.upload_files.grid(row=2, column=0, sticky='news')
-        self.import_files.grid(row=3, column=0, sticky='news')
+        self.upload_files_button.grid(row=2, column=0, sticky='news')
+        self.import_files_button.grid(row=3, column=0, sticky='news')
 
     def upload_esp_and_prg(event):
         pass
 
-    def cancel_confirmation(event):
+    def import_files(event):
         pass
 
 class FileChecker(tk.Toplevel):
