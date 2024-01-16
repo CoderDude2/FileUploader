@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import os
 
 import file_manager
 
@@ -12,14 +13,13 @@ class App(tk.Tk):
         self.title("File Manager")
         self.geometry("200x200")
 
-        FileChecker().show(cases=file_manager.check_prg_files(file_manager.LOCAL_PRG_PATH))
-
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(2, weight=1)
         self.grid_rowconfigure(3, weight=1)
         
-        self.path_entry = tk.Entry(master=self)
-        self.folder_selction_combo = ttk.Combobox(master=self, state="readonly", values=[1,2,3])
+        self.path_entry = tk.Entry(master=self, textvariable="Test")
+        self.path_entry.insert(0,string=file_manager.REMOTE_STL_PATH)
+        self.folder_selction_combo = ttk.Combobox(master=self, state="readonly", values=os.listdir(file_manager.REMOTE_STL_PATH))
         self.upload_files = tk.Button(master=self, text="Upload", command=self.upload_esp_and_prg)
         self.import_files = tk.Button(master=self, text="Import", command=self.cancel_confirmation)
 

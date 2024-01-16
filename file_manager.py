@@ -23,11 +23,11 @@ def date_as_path(date=None):
     _year = f'Y{str(date.year)}'
     return os.path.join(_year, _month, _day)
 
-LOCAL_STL_PATH = "C:/Users/TruUser/Desktop/작업/스캔파일"
-LOCAL_ESP_PATH = "C:/Users/TruUser/Desktop/작업\작업저장"
-LOCAL_PRG_PATH = "C:/Users/TruUser/Documents/DP Technology/ESPRIT/Data/NC_Files"
+LOCAL_STL_PATH = r"C:\Users\TruUser\Desktop\작업\스캔파일"
+LOCAL_ESP_PATH = r"C:\Users\TruUser\Desktop/작업\작업저장"
+LOCAL_PRG_PATH = r"C:\Users\TruUser\Documents\DP Technology\ESPRIT\Data\NC_Files"
 
-REMOTE_STL_PATH = f"//192.168.1.100/Trubox/####ERP_RM####/{date_as_path()}/1. CAM/1. STL/Isaac"
+REMOTE_STL_PATH = f"\\\\192.168.1.100\\Trubox\\####ERP_RM####\\{date_as_path()}\\1. CAM\\1. STL\Isaac"
 REMOTE_ESP_PATH = f"//192.168.1.100/Trubox/####ERP_RM####/{date_as_path()}/1. CAM/2. ESP/Isaac"
 REMOTE_PRG_PATH = f"//192.168.1.100/Trubox/####ERP_RM####/{date_as_path()}/1. CAM/3. NC files/Isaac"
 
