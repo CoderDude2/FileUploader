@@ -124,7 +124,15 @@ def upload_esp_files():
             if(case_regex.match(file) and case_regex.match(file).group("file_type") == ".esp"):
                 shutil.move(os.path.join(LOCAL_ESP_PATH, file), new_path_name)
 
+def get_stl_folders():
+    pass
 
+def get_esp_folders():
+    pass
+
+def get_prg_folders():
+    pass
 if __name__ == '__main__':
-    for case in check_prg_files(LOCAL_PRG_PATH):
-        print(case._id)
+    get_stl_folders()
+    # for case in check_prg_files(LOCAL_PRG_PATH):
+    #     print(case._id)
