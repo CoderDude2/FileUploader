@@ -27,9 +27,9 @@ LOCAL_STL_PATH = r"C:\Users\TruUser\Desktop\작업\스캔파일"
 LOCAL_ESP_PATH = r"C:\Users\TruUser\Desktop/작업\작업저장"
 LOCAL_PRG_PATH = r"C:\Users\TruUser\Documents\DP Technology\ESPRIT\Data\NC_Files"
 
-REMOTE_STL_PATH = f"\\\\192.168.1.100\\Trubox\\####ERP_RM####\\{date_as_path()}\\1. CAM\\1. STL\Isaac"
-REMOTE_ESP_PATH = f"//192.168.1.100/Trubox/####ERP_RM####/{date_as_path()}/1. CAM/2. ESP/Isaac"
-REMOTE_PRG_PATH = f"//192.168.1.100/Trubox/####ERP_RM####/{date_as_path()}/1. CAM/3. NC files/Isaac"
+REMOTE_STL_PATH = f"\\\\192.168.1.100\\Trubox\\####ERP_RM####\\{date_as_path()}\\1. CAM\\1. STL"
+REMOTE_ESP_PATH = f"\\\\192.168.1.100\\Trubox\\####ERP_RM####\\{date_as_path()}\\1. CAM\\2. ESP"
+REMOTE_PRG_PATH = f"\\\\192.168.1.100\\Trubox\\####ERP_RM####\\{date_as_path()}\\1. CAM\\3. NC files"
 
 def check_prg_files(prg_path) -> list[Case]:
     output = []
@@ -124,15 +124,14 @@ def upload_esp_files():
             if(case_regex.match(file) and case_regex.match(file).group("file_type") == ".esp"):
                 shutil.move(os.path.join(LOCAL_ESP_PATH, file), new_path_name)
 
-def get_stl_folders():
-    pass
+def get_stl_folders(name:str) -> list:
+    return os.listdir(os.path.join(REMOTE_STL_PATH, name))
 
-def get_esp_folders():
-    pass
+def get_esp_folders(name:str) -> list:
+    return os.listdir(os.path.join(REMOTE_ESP_PATH, name))
 
-def get_prg_folders():
-    pass
+def get_prg_folders(name:str) -> list:
+    return os.listdir(os.path.join(REMOTE_PRG_PATH, name))
+
 if __name__ == '__main__':
-    get_stl_folders()
-    # for case in check_prg_files(LOCAL_PRG_PATH):
-    #     print(case._id)
+    print(get_prg_folders("Isac"))
